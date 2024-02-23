@@ -66,7 +66,7 @@ async def send_data_to_client(websocket, path):
             # Enviar datos al cliente
             await websocket.send(json.dumps(formatted_data))
 
-            await asyncio.sleep(1)  # Esperar un segundo antes de la próxima actualización
+            await asyncio.sleep(0.1)  # Esperar un segundo antes de la próxima actualización
     except Exception as e:
         print(f"Error al enviar datos al cliente: {e}")
 
