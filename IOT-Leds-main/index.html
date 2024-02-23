@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Gráfica en Tiempo Real con PHP y Chart.js</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css" id="theme-css" />
+    <link rel="stylesheet" href="default-theme.css" id="theme">
+  </head>
+
+  <body>
+    <header>
+      <div id="header" class="text-white text-center">
+        <h1>Garcia Leyva Andres / Mendoza Gutierrez Juan Diego / Guzman Hoil Angel Manuel / Sánchez Roano Carlos Alonso</h1>
+        <h2>SM-53</h2>
+      </div>
+    </header>
+    <main
+      class="min-h-screen grid grid-cols-1 xl:grid-cols-6 bg-gray-300 gap-4 p-4"
+    >
+      <div class="xl:col-span-3 bg-white shadow rounded-lg p-4">
+        <div class="xl:col-span-5">
+          <div id="cont-graphic" class="bg-gray-800 h-[10vh] overflow-y-scroll p-8">
+            <canvas
+              id="myChart"
+              style="max-width: 1000px; max-height: 300px"
+            ></canvas>
+            <div class="flex justify-center space-x-4 mt-4">
+              <img
+                id="verdeImg"
+                src="./img/VERDE OFF.png"
+                alt=""
+                class="h-30 w-30"
+                style="height: 120px; width: 120px"
+              />
+              <img
+                id="amarilloImg"
+                src="./img/AMARILLO OFF.png"
+                alt=""
+                class="h-30 w-30"
+                style="height: 120px; width: 120px"
+              />
+              <img
+                id="rojoImg"
+                src="./img/ROJO OFF.png"
+                alt=""
+                class="h-30 w-30"
+                style="height: 120px; width: 120px"
+              />
+            </div>
+
+            <div class="flex justify-center space-x-4 mt-4">
+              <select
+                id="chartType"
+                class="block appearance-none w-full  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+              >
+                <option>Selecciona una opción</option>
+                <option value="bar" selected>Gráfica de barras</option>
+                <option value="line">Gráfica de líneas</option>
+                <option value="radar">Gráfica de radar</option>
+              </select>
+              <!-- aqui va el select -->
+            </div>
+          </div>
+        </div>
+        <!-- Contenido del contenedor -->
+      </div>
+
+      <!-- Contenedor superior derecho -->
+      <div id="cont-light" class="xl:col-span-3 bg-gray-700 shadow rounded-lg p-4">
+        <div class="xl:col-span-5">
+          <div class="bg-white-100 h-[10vh] overflow-y-scroll p-8">
+        
+              
+              <img
+                id="focoImg"
+                src="./img/foco_off.png"
+                alt=""
+                class="h-60 w-60"
+                style="height: 300px; width: 300px"
+              />
+              
+            </div>
+            <div class="interruptor">
+              <label class="switch">
+                  <input type="checkbox" checked="checked" id="toggleBtn">
+                  <div class="button2">
+                    <div class="light"></div>
+                    <div class="dots"></div>
+                    <div class="characters"></div>
+                    <div class="shine"></div>
+                    <div class="shadow"></div>
+                  </div>
+              </label>          
+          </div>
+          </div>
+        </div>
+        <!-- Contenido del contenedor -->
+      </div>
+
+      <!-- Contenedor inferior -->
+      <div class="xl:col-span-6 bg-white shadow rounded-lg p-4">
+        <!-- Contenedor desplazable con Tailwind CSS -->
+        <div class="overflow-auto max-h-96">
+          <table class="w-full text-sm text-left text-gray-500">
+            <thead class="text-xs text-white uppercase bg-gray-700">
+              <tr>
+                <th scope="col" class="px-6 py-3 text-center">Sensor</th>
+                <th scope="col" class="px-6 py-3 text-center">Distancia</th>
+                <th scope="col" class="px-6 py-3 text-center">Color de Led</th>
+              </tr>
+            </thead>
+            <tbody id="tableBodyId">
+              <!-- Las filas de la tabla se llenarán dinámicamente aquí -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+
+    </main>
+
+    <script src="ultrasonic.js"></script>
+    <script src="focoSwitch.js"></script>
+  </body>
+</html>
+
+<!-- <div class="xl:col-span-5">
+            <div class="bg-white-100 h-[10vh] overflow-y-scroll p-8">
+                <canvas id="myChart" style="max-width: 1000px; max-height: 300px;"></canvas>
+                <div class="flex justify-center space-x-4 mt-4">
+                    <img id="verdeImg" src="./img/VERDE OFF.png" alt="" class="h-30 w-30"
+                        style="height: 120px; width: 120px;">
+                    <img id="amarilloImg" src="./img/AMARILLO OFF.png" alt="" class="h-30 w-30"
+                        style="height: 120px; width: 120px;">
+                    <img id="rojoImg" src="./img/ROJO OFF.png" alt="" class="h-30 w-30"
+                        style="height: 120px; width: 120px;">
+                </div>
+            </div>
+        </div> -->
